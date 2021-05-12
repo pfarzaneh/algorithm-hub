@@ -1,32 +1,56 @@
 package pfarzaneh.training.algorithms;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.Date;
+import java.util.Random;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class SumTest {
 
-    private Sum sum;
+    private Sum sum = new Sum();
 
-    @BeforeAll
-    void beforeAll() {
-        sum = new Sum();
+    @Test
+    void computeTest_with_static_array() {
+        long[] arr = {
+            1, 2, 3, 4, 5,
+            5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
+            5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
+            3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+            10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
+
+        assertEquals(360, doCompute(arr));
     }
 
     @Test
-    void computeTest() {
-        long[] arr = {1, 2, 3, 4, 5, 6};
-        assertEquals(21, sum.compute(arr));
+    void computeTest_with_large_dynamic_array() {
+        long sum = 0;
+        int size = 100000;
+        long[] arr = new long[size];
+
+        for (int i = 0; i < size; i++) {
+            Random random = new Random();
+            int num = random.nextInt(100);
+            sum += num;
+            arr[i] = num;
+        }
+
+        assertEquals(sum, doCompute(arr));
+    }
+
+    private long doCompute(long[] arr) {
+        long start = new Date().getTime();
+        long result = sum.compute(arr);
+        System.out.println("compute took: " + (new Date().getTime() - start) + " millis");
+        return result;
     }
 
     @Test
-    void addTest() {
-        int result = sum.add(8, 2);
+    void dummyAddTest() {
+        int result = sum.dummyAdd(8, 2);
         assertEquals(10, result);
     }
 
@@ -37,8 +61,19 @@ class SumTest {
         "49,  51, 100",
         "1,  100, 101"
     })
-    void addTest(int first, int second, int expectedResult) {
-        int result = sum.add(first, second);
+    void dummyAddTest(int first, int second, int expectedResult) {
+        int result = sum.dummyAdd(first, second);
         assertEquals(expectedResult, result);
     }
+
+
+    @Test
+    void bitwiseTest(){
+        int bitmask = 0x000f;
+        int value = 0x0002;
+
+        System.out.println(value << 1);
+
+    }
+
 }
