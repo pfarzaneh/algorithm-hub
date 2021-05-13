@@ -69,11 +69,10 @@ class SumTest {
 
     @Test
     void bitwiseTest(){
-        int bitmask = 0x000f;
-        int value = 0x0002;
-
-        System.out.println(value << 1);
-
+        /**
+         * 1000.1101 0000.0000 0000.0000 0000.0000
+         *
+         */
     }
 
 }
