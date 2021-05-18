@@ -5,7 +5,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Date;
-import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -28,23 +27,29 @@ class SumTest {
     @Test
     void computeTest_with_large_dynamic_array() {
         long sum = 0;
-        int size = 100000;
+        int size = 600000000;
         long[] arr = new long[size];
 
         for (int i = 0; i < size; i++) {
-            Random random = new Random();
-            int num = random.nextInt(100);
-            sum += num;
-            arr[i] = num;
+            arr[i] = i + 1;
+            sum += arr[i];
         }
 
         assertEquals(sum, doCompute(arr));
+//        assertEquals(sum, doComputeSequentially(arr));
     }
 
     private long doCompute(long[] arr) {
         long start = new Date().getTime();
         long result = sum.compute(arr);
         System.out.println("compute took: " + (new Date().getTime() - start) + " millis");
+        return result;
+    }
+
+    private long doComputeSequentially(long[] arr) {
+        long start = new Date().getTime();
+        long result = sum.computeSequentially(arr);
+        System.out.println("sequential compute took: " + (new Date().getTime() - start) + " millis");
         return result;
     }
 
@@ -66,13 +71,5 @@ class SumTest {
         assertEquals(expectedResult, result);
     }
 
-
-    @Test
-    void bitwiseTest(){
-        /**
-         * 1000.1101 0000.0000 0000.0000 0000.0000
-         *
-         */
-    }
-
 }
+

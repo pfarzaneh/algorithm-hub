@@ -2,6 +2,18 @@ package pfarzaneh.training.algorithms;
 
 class Sum {
 
+    int dummyAdd(int a, int b) {
+        return a + b;
+    }
+
+    long computeSequentially(long arr[]) {
+        long sum = 0;
+        for (long val : arr) {
+            sum += val;
+        }
+        return sum;
+    }
+
     long compute(long arr[]) {
         return compute(arr, 0, arr.length - 1);
     }
@@ -15,11 +27,6 @@ class Sum {
             int mid = (lowerBound + upperBound) / 2;
             return compute(arr, lowerBound, mid) + compute(arr, mid + 1, upperBound);
         }
-    }
-
-
-    int dummyAdd(int a, int b) {
-        return a + b;
     }
 
 }
