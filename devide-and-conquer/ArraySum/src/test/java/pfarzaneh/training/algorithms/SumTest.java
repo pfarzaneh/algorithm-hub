@@ -25,6 +25,7 @@ class SumTest {
     }
 
     @Test
+    @SuppressWarnings("Duplicates")
     void computeTest_with_large_dynamic_array() {
         long sum = 0;
         int size = 600000000;
@@ -36,21 +37,33 @@ class SumTest {
         }
 
         assertEquals(sum, doCompute(arr));
-//        assertEquals(sum, doComputeSequentially(arr));
-    }
+  }
 
     private long doCompute(long[] arr) {
+
         long start = new Date().getTime();
         long result = sum.compute(arr);
         System.out.println("compute took: " + (new Date().getTime() - start) + " millis");
         return result;
     }
 
-    private long doComputeSequentially(long[] arr) {
+    @Test
+    void computeSequentiallyTest_with_large_dynamic_array() {
+        long s = 0;
+        int size = 600000000;
+        long[] arr = new long[size];
+
+        for (int i = 0; i < size; i++) {
+            arr[i] = i + 1;
+            s += arr[i];
+        }
+
         long start = new Date().getTime();
         long result = sum.computeSequentially(arr);
         System.out.println("sequential compute took: " + (new Date().getTime() - start) + " millis");
-        return result;
+
+        assertEquals(s, result);
+
     }
 
     @Test
