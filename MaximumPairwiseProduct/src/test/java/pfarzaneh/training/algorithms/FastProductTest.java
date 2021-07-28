@@ -107,10 +107,11 @@ class FastProductTest {
     @Test
     void recursiveMaxPairwiseProductTest_with_static_array() {
         long[] arr = {
-            9, 10, 5, 8, 11, 3, 6, 7, 4, 2, 11
+            20, 1990, 12, 1110, 1,
+            59, 12, 15, 120, 1110
         };
 
-        assertEquals(121, recursiveMaxPairwiseProduct(arr));
+        assertEquals(2208900, recursiveMaxPairwiseProduct(arr));
     }
 
     @Test
