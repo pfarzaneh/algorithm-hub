@@ -2,7 +2,6 @@ package pfarzaneh.training.algorithms;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Date;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,16 +14,16 @@ class FastProductTest {
     @Test
     void maxPairwiseProductTest_with_static_array() {
         long[] arr = {
-            9, 2, 5, 3, 4, 8, 6, 1, 10, 7
+            9, 10, 5, 8, 11, 3, 6, 7, 4, 2, 11
         };
 
-        assertEquals(90, maxPairwiseProduct(arr));
+        assertEquals(121, maxPairwiseProduct(arr));
     }
 
     @Test
     @SuppressWarnings("Duplicates")
     void maxPairwiseProductTest_with_large_dynamic_array() {
-        int size = 600000000;
+        int size = 600;
         long max = size - 1;
         long[] array = new long[size];
 
@@ -37,16 +36,16 @@ class FastProductTest {
 
     private long maxPairwiseProduct(long[] arr) {
 
-        long start = new Date().getTime();
+        long start = System.nanoTime();
         long result = fastProduct.maxPairwiseProduct(arr);
-        System.out.println("maxPairwiseProduct took: " + (new Date().getTime() - start) + " millis");
+        System.out.println("maxPairwiseProduct took: " + (System.nanoTime() - start) + " millis");
         return result;
     }
 
     @Test
     void enhancedMaxPairwiseProductTest_with_static_array() {
         long[] arr = {
-            4, 9, 10, 1, 2, 3, 11, 5, 6, 7, 8, 9, 10, 0, 11
+            9, 10, 5, 8, 11, 3, 6, 7, 4, 2, 11
         };
 
         assertEquals(121, enhancedMaxPairwiseProduct(arr));
@@ -68,16 +67,16 @@ class FastProductTest {
 
     private long enhancedMaxPairwiseProduct(long[] arr) {
 
-        long start = new Date().getTime();
+        long start = System.nanoTime();
         long result = fastProduct.enhancedMaxPairwiseProduct(arr);
-        System.out.println("enhancedMaxPairwiseProduct took: " + (new Date().getTime() - start) + " millis");
+        System.out.println("enhancedMaxPairwiseProduct took: " + (System.nanoTime() - start) + " millis");
         return result;
     }
 
     @Test
     void swappedMaxPairwiseProductTest_with_static_array() {
         long[] arr = {
-            4, 9, 10, 1, 2, 3, 11, 5, 6, 7, 8, 9, 10, 0, 11
+            9, 10, 5, 8, 11, 3, 6, 7, 4, 2, 11
         };
 
         assertEquals(121, swappedMaxPairwiseProduct(arr));
@@ -86,7 +85,7 @@ class FastProductTest {
     @Test
     @SuppressWarnings("Duplicates")
     void swappedMaxPairwiseProductTest_with_large_dynamic_array() {
-        int size = 600000000;
+        int size = 600;
         long max = size - 1;
         long[] array = new long[size];
 
@@ -99,9 +98,40 @@ class FastProductTest {
 
     private long swappedMaxPairwiseProduct(long[] arr) {
 
-        long start = new Date().getTime();
+        long start = System.nanoTime();
         long result = fastProduct.swappedMaxPairwiseProduct(arr);
-        System.out.println("swappedMaxPairwiseProduct took: " + (new Date().getTime() - start) + " millis");
+        System.out.println("swappedMaxPairwiseProduct took: " + (System.nanoTime() - start) + " millis");
+        return result;
+    }
+
+    @Test
+    void recursiveMaxPairwiseProductTest_with_static_array() {
+        long[] arr = {
+            9, 10, 5, 8, 11, 3, 6, 7, 4, 2, 11
+        };
+
+        assertEquals(121, recursiveMaxPairwiseProduct(arr));
+    }
+
+    @Test
+    @SuppressWarnings("Duplicates")
+    void recursiveMaxPairwiseProductTest_with_large_dynamic_array() {
+        int size = 600;
+        long max = size - 1;
+        long[] array = new long[size];
+
+        for (int i = 0; i < size; i++) {
+            array[i] = i;
+        }
+
+        assertEquals((max * (max - 1)), recursiveMaxPairwiseProduct(array));
+    }
+
+    private long recursiveMaxPairwiseProduct(long[] arr) {
+
+        long start = System.nanoTime();
+        long result = fastProduct.recursiveMaxPairwiseProduct(arr);
+        System.out.println("recursiveMaxPairwiseProduct took: " + (System.nanoTime() - start) + " millis");
         return result;
     }
 
@@ -138,7 +168,82 @@ class FastProductTest {
     }
 
     @Test
-    void compare
+    void assert_recursive_algorithm() {
+        Random random = new Random();
+        int size = 600;
+
+        for (int t = 0; t < 1000; t++) {
+            long[] array = new long[size];
+            for (int i = 0; i < size; i++) {
+                array[i] = random.nextInt(10000);
+            }
+            long naiveMaxPairwise = naiveProduct.maxPairwiseProduct(array);
+            long recursiveMaxPairwise = fastProduct.recursiveMaxPairwiseProduct(array);
+            assertEquals(naiveMaxPairwise, recursiveMaxPairwise);
+        }
+    }
+
+    @Test
+    void compare_simpleFast_vs_enhanced_vs_swapped_vs_recursive_with_increasing_ordered_array() {
+
+        for (int j = 0; j < 10; j++) {
+
+            int size = 100000;
+            long[] array = new long[size];
+
+            for (int i = 0; i < size; i++) {
+                array[i] = i;
+            }
+
+            maxPairwiseProduct(array);
+            enhancedMaxPairwiseProduct(array);
+            swappedMaxPairwiseProduct(array);
+            recursiveMaxPairwiseProduct(array);
+
+            System.out.println("----------------------------------------");
+        }
+    }
+
+    @Test
+    void compare_simpleFast_vs_enhanced_vs_swapped_vs_recursive_with_decreasing_ordered_array() {
+
+        for (int j = 0; j < 10; j++) {
+
+            int size = 100000;
+            long[] array = new long[size];
+
+            for (int i = size - 1; i >= 0; i--) {
+                array[i] = i;
+            }
+
+            maxPairwiseProduct(array);
+            enhancedMaxPairwiseProduct(array);
+            swappedMaxPairwiseProduct(array);
+            recursiveMaxPairwiseProduct(array);
+
+            System.out.println("----------------------------------------");
+        }
+    }
+
+    @Test
+    void compare_simpleFast_vs_enhanced_vs_swapped_vs_recursive_with_random_array() {
+        Random random = new Random();
+
+        for (int j = 0; j < 10; j++) {
+
+            int size = 100000;
+            long[] array = new long[size];
+            for (int i = 0; i < size; i++) {
+                array[i] = random.nextInt(10000);
+            }
+
+            maxPairwiseProduct(array);
+            enhancedMaxPairwiseProduct(array);
+            swappedMaxPairwiseProduct(array);
+            recursiveMaxPairwiseProduct(array);
+
+            System.out.println("---------------------------");
+        }
+    }
 
 }
-
