@@ -38,7 +38,8 @@ class FastProductTest {
 
         long start = System.nanoTime();
         long result = fastProduct.maxPairwiseProduct(arr);
-        System.out.println("maxPairwiseProduct took: " + (System.nanoTime() - start) + " millis");
+        long end = System.nanoTime();
+        System.out.println("maxPairwiseProduct took: " + (end - start) + " millis");
         return result;
     }
 
@@ -69,7 +70,8 @@ class FastProductTest {
 
         long start = System.nanoTime();
         long result = fastProduct.enhancedMaxPairwiseProduct(arr);
-        System.out.println("enhancedMaxPairwiseProduct took: " + (System.nanoTime() - start) + " millis");
+        long end = System.nanoTime();
+        System.out.println("enhancedMaxPairwiseProduct took: " + (end - start) + " millis");
         return result;
     }
 
@@ -100,7 +102,8 @@ class FastProductTest {
 
         long start = System.nanoTime();
         long result = fastProduct.swappedMaxPairwiseProduct(arr);
-        System.out.println("swappedMaxPairwiseProduct took: " + (System.nanoTime() - start) + " millis");
+        long end = System.nanoTime();
+        System.out.println("swappedMaxPairwiseProduct took: " + (end - start) + " millis");
         return result;
     }
 
@@ -187,9 +190,9 @@ class FastProductTest {
     @Test
     void compare_simpleFast_vs_enhanced_vs_swapped_vs_recursive_with_increasing_ordered_array() {
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 5; j++) {
 
-            int size = 100000;
+            int size = 600000000;
             long[] array = new long[size];
 
             for (int i = 0; i < size; i++) {
@@ -199,7 +202,7 @@ class FastProductTest {
             maxPairwiseProduct(array);
             enhancedMaxPairwiseProduct(array);
             swappedMaxPairwiseProduct(array);
-            recursiveMaxPairwiseProduct(array);
+//            recursiveMaxPairwiseProduct(array);
 
             System.out.println("----------------------------------------");
         }
@@ -208,9 +211,9 @@ class FastProductTest {
     @Test
     void compare_simpleFast_vs_enhanced_vs_swapped_vs_recursive_with_decreasing_ordered_array() {
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 5; j++) {
 
-            int size = 100000;
+            int size = 600000000;
             long[] array = new long[size];
 
             for (int i = size - 1; i >= 0; i--) {
@@ -220,7 +223,7 @@ class FastProductTest {
             maxPairwiseProduct(array);
             enhancedMaxPairwiseProduct(array);
             swappedMaxPairwiseProduct(array);
-            recursiveMaxPairwiseProduct(array);
+//            recursiveMaxPairwiseProduct(array);
 
             System.out.println("----------------------------------------");
         }
@@ -230,9 +233,9 @@ class FastProductTest {
     void compare_simpleFast_vs_enhanced_vs_swapped_vs_recursive_with_random_array() {
         Random random = new Random();
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 5; j++) {
 
-            int size = 100000;
+            int size = 600000000;
             long[] array = new long[size];
             for (int i = 0; i < size; i++) {
                 array[i] = random.nextInt(10000);
@@ -241,7 +244,7 @@ class FastProductTest {
             maxPairwiseProduct(array);
             enhancedMaxPairwiseProduct(array);
             swappedMaxPairwiseProduct(array);
-            recursiveMaxPairwiseProduct(array);
+//            recursiveMaxPairwiseProduct(array);
 
             System.out.println("---------------------------");
         }

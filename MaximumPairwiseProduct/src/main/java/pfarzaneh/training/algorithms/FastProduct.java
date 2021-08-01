@@ -28,19 +28,18 @@ class FastProduct {
     }
 
     long enhancedMaxPairwiseProduct(long[] array) {
-        long first = 0;
-        long second = 0;
-        for (int i = 0; i < array.length; i++) {
-            if ((array[i] > second) || (array[i] > first)) {
-                if (second >= first) {
-                    first = second;
-                }
-                second = array[i];
+        long max = 0, secondMax = 0;
 
+        for (long arrayItem : array) {
+            if (arrayItem > max) {
+                secondMax = max;
+                max = arrayItem;
+            } else if (arrayItem > secondMax) {
+                secondMax = arrayItem;
             }
         }
 
-        return first * second;
+        return max * secondMax;
     }
 
     long swappedMaxPairwiseProduct(long[] array) {
