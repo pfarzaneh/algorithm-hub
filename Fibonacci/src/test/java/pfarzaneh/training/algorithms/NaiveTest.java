@@ -9,6 +9,7 @@ class NaiveTest {
     private Naive naive = new Naive();
 
     @Test
+    @SuppressWarnings("Duplicates")
     void computeTest_just_for_asserting() {
 
         assertEquals(0, compute(0));
@@ -29,7 +30,7 @@ class NaiveTest {
         long start = System.nanoTime();
         long result = naive.compute(n);
         long end = System.nanoTime();
-        System.out.println("compute took: " + (end - start) + " nanos");
+        System.out.println("naive compute() took: " + (end - start) + " nanos");
         return result;
     }
 
