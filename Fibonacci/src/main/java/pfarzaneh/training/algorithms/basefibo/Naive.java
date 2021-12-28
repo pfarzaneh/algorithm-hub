@@ -1,4 +1,4 @@
-package pfarzaneh.training.algorithms;
+package pfarzaneh.training.algorithms.basefibo;
 
 class Naive {
 

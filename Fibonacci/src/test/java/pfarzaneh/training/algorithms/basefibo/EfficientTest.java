@@ -1,6 +1,7 @@
-package pfarzaneh.training.algorithms;
+package pfarzaneh.training.algorithms.basefibo;
 
 import org.junit.jupiter.api.Test;
+import pfarzaneh.training.algorithms.basefibo.Efficient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
