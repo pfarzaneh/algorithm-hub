@@ -1,6 +1,6 @@
 package pfarzaneh.training.algorithms;
 
-class LargeFibonacciLastDigit {
+class FibonacciLastDigit {
 
     int compute(int n) {
         if (n <= 1)

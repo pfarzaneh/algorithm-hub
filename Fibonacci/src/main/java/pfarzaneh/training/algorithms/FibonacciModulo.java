@@ -1,6 +1,6 @@
 package pfarzaneh.training.algorithms;
 
-class Fibonacci_N_Modulo_M {
+class FibonacciModulo {
 
     long fibonacciModulo(long n, int m) {
 

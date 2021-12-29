@@ -3,9 +3,9 @@ package pfarzaneh.training.algorithms;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class Fibonacci_N_Modulo_MTest {
+class FibonacciModuloTest {
 
-    private Fibonacci_N_Modulo_M fibonacci = new Fibonacci_N_Modulo_M();
+    private FibonacciModulo fibonacci = new FibonacciModulo();
 
     @Test
     void computeTest() {

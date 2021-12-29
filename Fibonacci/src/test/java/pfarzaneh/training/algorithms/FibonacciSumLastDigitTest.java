@@ -2,8 +2,6 @@ package pfarzaneh.training.algorithms;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 class FibonacciSumLastDigitTest {
 
     private FibonacciSumLastDigit fibonacciSum = new FibonacciSumLastDigit();
@@ -24,6 +22,14 @@ class FibonacciSumLastDigitTest {
         }
     }
 
+    @Test
+    void enhancedPartialComputeTest_with_big_number() {
+        for (int i = 0; i < 10; i++) {
+            long n = enhancedPartialCompute(10,200);
+            System.out.println(n);
+        }
+    }
+
     private long compute(int n) {
         long start = System.nanoTime();
         long result = fibonacciSum.compute(n);
@@ -39,4 +45,13 @@ class FibonacciSumLastDigitTest {
         System.out.println("Fibonacci sum with enhanced compute() took: " + (end - start) + " nanos");
         return result;
     }
+
+    private long enhancedPartialCompute(int m, int n) {
+        long start = System.nanoTime();
+        long result = fibonacciSum.enhancedPartialCompute(m, n);
+        long end = System.nanoTime();
+        System.out.println("Fibonacci partial sum with enhanced compute() took: " + (end - start) + " nanos");
+        return result;
+    }
+
 }

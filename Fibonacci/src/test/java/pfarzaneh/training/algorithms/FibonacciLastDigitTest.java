@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class LargeFibonacciLastDigitTest {
+class FibonacciLastDigitTest {
 
-    private LargeFibonacciLastDigit largeFibonacci = new LargeFibonacciLastDigit();
+    private FibonacciLastDigit largeFibonacci = new FibonacciLastDigit();
 
     @Test
     void computeTest_just_for_asserting() {

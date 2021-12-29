@@ -43,6 +43,13 @@ class FibonacciSumLastDigit {
         return (sum + computeSum(n)) % 10;
     }
 
+    int enhancedPartialCompute(int m, int n){
+        int whole = enhancedCompute(n);
+        int part = enhancedCompute(m -1);
+
+        return ((whole + 10) - part) % 10;
+    }
+
     private int computeSum(int n) {
         int previous = 0;
         int current = 1;
