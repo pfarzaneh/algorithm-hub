@@ -13,10 +13,10 @@ public class RotateTest {
     public void directTest_large_array() {
         for (int i = 0; i < 30; i++) {
 
-            int l = 400;
+            int l = 100000;
             int[] array = new int[l];
 
-            int n = 27;
+            int n = 10000;
 
             fillWithRandomNumbers(array);
 
@@ -33,6 +33,7 @@ public class RotateTest {
         }
 
     }
+
 
     private void fillWithRandomNumbers(int[] array) {
         Random random = new Random();
