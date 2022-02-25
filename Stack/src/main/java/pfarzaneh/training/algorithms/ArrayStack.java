@@ -2,12 +2,14 @@ package pfarzaneh.training.algorithms;
 
 public class ArrayStack {
 
-    private static final int MAX_SIZE = 1000;
+    private final int MAX_SIZE;
     private int top;
-    private int stack[] = new int[MAX_SIZE]; // Maximum size of Stack
+    private int[] stack;
 
-    ArrayStack() {
+    ArrayStack(int size) {
         top = -1;
+        MAX_SIZE = size;
+        stack = new int[size];
     }
 
     boolean isEmpty() {
@@ -53,7 +55,7 @@ public class ArrayStack {
 // Driver code
 class Main {
     public static void main(String args[]) {
-        ArrayStack s = new ArrayStack();
+        ArrayStack s = new ArrayStack(3);
         s.push(10);
         s.push(20);
         s.push(30);
