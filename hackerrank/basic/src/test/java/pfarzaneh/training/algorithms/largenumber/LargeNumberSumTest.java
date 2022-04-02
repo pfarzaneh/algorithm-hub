@@ -1,4 +1,4 @@
-package pfarzaneh.training.algorithms;
+package pfarzaneh.training.algorithms.largenumber;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

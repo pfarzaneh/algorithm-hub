@@ -3,10 +3,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>pfarzaneh.training.algorithms.hackerrank</groupId>
-    <artifactId>easy</artifactId>
+    <artifactId>basic</artifactId>
     <version>SNAPSHOT.0.0.1</version>
 
-    <name>easy</name>
+    <name>basic</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

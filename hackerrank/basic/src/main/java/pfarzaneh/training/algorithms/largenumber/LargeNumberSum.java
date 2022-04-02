@@ -1,4 +1,4 @@
-package pfarzaneh.training.algorithms;
+package pfarzaneh.training.algorithms.largenumber;
 
 public class LargeNumberSum {
 
