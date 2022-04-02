@@ -3,10 +3,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>pfarzaneh.training.algorithms</groupId>
-    <artifactId>arrays</artifactId>
+    <artifactId>least-common-multiplier</artifactId>
     <version>SNAPSHOT.0.0.1</version>
 
-    <name>Arrays</name>
+    <name>least-common-multiplier</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

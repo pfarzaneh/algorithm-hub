@@ -3,10 +3,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>pfarzaneh.training.algorithms</groupId>
-    <artifactId>linkedlist</artifactId>
+    <artifactId>stack</artifactId>
     <version>SNAPSHOT.0.0.1</version>
 
-    <name>LinkedList</name>
+    <name>stack</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

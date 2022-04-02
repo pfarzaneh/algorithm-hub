@@ -3,10 +3,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>pfarzaneh.training.algorithms</groupId>
-    <artifactId>lcm</artifactId>
+    <artifactId>arrays</artifactId>
     <version>SNAPSHOT.0.0.1</version>
 
-    <name>LCM</name>
+    <name>arrays</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

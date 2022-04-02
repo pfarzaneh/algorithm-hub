@@ -3,10 +3,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>pfarzaneh.training.algorithms</groupId>
-    <artifactId>maximum-pairwise-product</artifactId>
+    <artifactId>fibonacci</artifactId>
     <version>SNAPSHOT.0.0.1</version>
 
-    <name>MaximumPairwiseProduct</name>
+    <name>fibonacci</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
