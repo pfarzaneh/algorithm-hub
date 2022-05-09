@@ -1,6 +1,6 @@
 **Data Structures and Algorithms**
 
-This repo contains implementations for various data structures and algorithms as I go ahead of my way.
+This repo contains implementations for various data structures and algorithms.
 
 - The purpose of this repo is just educational.
 - Some DSA impls are based on the online tests available on practice sites like hacker rank. These DSAs are categorized on the respective directory.
