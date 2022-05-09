@@ -2,6 +2,7 @@ package pfarzaneh.training.algorithms.findmedian;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 
@@ -11,6 +12,13 @@ public class Result {
         Arrays.sort(arr);
         int size = arr.length;
         return arr[size / 2];
+    }
+
+    public static int findMedianOfList(List<Integer> arr) {
+        arr.sort(Integer::compareTo);
+        int size = arr.size();
+        return arr.get(size / 2);
+
     }
 
 }
